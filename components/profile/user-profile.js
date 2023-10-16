@@ -5,22 +5,24 @@ import classes from './user-profile.module.css';
 
 
 function UserProfile() {
-  const [isLoading, setIsLoading] = useState(false);
- 
-  useEffect(() => {
-    getSession().then(session => {
-      setIsLoading(false);
-      if (!session) {
-        window.location.href = "/auth";
-      } else {
-        setIsLoading(false);
-      }
-    });
-  }, []);
 
-  if (isLoading) {
-    return <p className={classes.profile}>Loading...</p>
-  }
+  // removed the below code because ended up putting the route guard on the server side in the Profile page.
+  // const [isLoading, setIsLoading] = useState(false);
+ 
+  // useEffect(() => {
+  //   getSession().then(session => {
+  //     setIsLoading(false);
+  //     if (!session) {
+  //       window.location.href = "/auth";
+  //     } else {
+  //       setIsLoading(false);
+  //     }
+  //   });
+  // }, []);
+
+  // if (isLoading) {
+  //   return <p className={classes.profile}>Loading...</p>
+  // }
 
   return (
     <section className={classes.profile}>

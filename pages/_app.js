@@ -1,11 +1,15 @@
-import Layout from '../components/layout/layout';
-import '../styles/globals.css';
+import { Provider } from "next-auth/client";
+import Layout from "../components/layout/layout";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    // note: the pageProps.session was set in the Profile page where we use getServerSideProps
+    <Provider session={pageProps.session}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 

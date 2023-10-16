@@ -20,7 +20,7 @@ async function handler(req, res) {
     const client = await connectToDatabase();
     const db = client.db();
 
-    const hashedPassword = hashPassword(password);
+    const hashedPassword = await hashPassword(password);
 
     const result = db.collection("users").insertOne({
       email: email,
